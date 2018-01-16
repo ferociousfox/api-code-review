@@ -6,20 +6,22 @@ export function getDoctor(callback, input) {
   const symptomInput = input;
   console.log(symptomInput);
   let request = new XMLHttpRequest();
+  console.log(request);
   let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${symptomInput}&location=or-portland&skip=0&limit=10&user_key=${apiKey}`;
+  console.log(url);
   request.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
       let response = JSON.parse(this.responseText);
+      console.log(response);
       let results = response.data;
-      console.log(results);
-      results.forEach(function(i){
+      results.forEach(function(i) {
         doctorsArray.push(i.profile.last_name);
       });
     callback(doctorsArray);
     }
-    request.open("get", url, true);
-    request.send();
   };
+  request.open("GET", url, true);
+  request.send();
 }
 
 export function getInfo(hollerback, doctorInput) {
@@ -45,6 +47,6 @@ export function getInfo(hollerback, doctorInput) {
       hollerback(infoArray);
     }
   };
-  request.open("get", url, true);
+  request.open("GET", url, true);
   request.send();
 }

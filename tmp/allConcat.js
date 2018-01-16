@@ -6,9 +6,10 @@ $(document).ready(function(){
     console.log(symptomInput);
     getDoctor(callback, symptomInput);
   });
+
   function callback(doctorsArray){
     console.log(doctorsArray);
-    if (doctorsArray.lenght > 0) {
+    if (doctorsArray.length > 0) {
       doctorsArray.forEach(function(doc) {
         $('#doc-for-symptom').append('<li> Dr. ' + doc + '</li>');
       });
@@ -21,6 +22,7 @@ $(document).ready(function(){
     console.log(doctorInput);
     getInfo(hollerback, doctorInput);
   });
+  
   function hollerback(infoArray){
     console.log(infoArray);
     infoArray.forEach(function(i){
