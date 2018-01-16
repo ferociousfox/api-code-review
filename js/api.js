@@ -14,13 +14,12 @@ export function getDoctor(callback, input) {
       console.log(results);
       results.forEach(function(i){
         doctorsArray.push(i.profile.last_name);
-        console.log(doctorsArray);
       });
-      callback(doctorsArray);
+    callback(doctorsArray);
     }
+    request.open("get", url, true);
+    request.send();
   };
-  request.open("get", url, true);
-  request.send();
 }
 
 export function getInfo(hollerback, doctorInput) {

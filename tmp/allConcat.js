@@ -8,10 +8,13 @@ $(document).ready(function(){
   });
   function callback(doctorsArray){
     console.log(doctorsArray);
-    doctorsArray.forEach(function(doc){
-      $('#doc-for-symptom').append('<li> Dr. ' + doc + '</li>');
-
-    });
+    if (doctorsArray.lenght > 0) {
+      doctorsArray.forEach(function(doc) {
+        $('#doc-for-symptom').append('<li> Dr. ' + doc + '</li>');
+      });
+    } else {
+      alert('try to enter a treatable symptom');
+    }
   }
   $('#doctor').click(function(event){
     const doctorInput = $('#doctor-query').val();
